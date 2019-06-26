@@ -351,6 +351,33 @@ sortMethod(sortArray: &sortArray)
 print("====\(sortArray)")
 //=================================== END =========================================
 
+
+func sort(array: inout [Int], left: Int, right: Int) -> Void {
+    if array.count == 0 || left >= right {
+        return
+    }
+    var i = left
+    var j = right
+    let key = array[i]
+    while i < j {
+        while i < j && key <= array[j] {
+            j -= 1
+        }
+        array[i] = array[j]
+        while i < j && key >= array[i] {
+            i += 1
+        }
+        array[j] = array[i]
+    }
+    array[i] = key
+    sort(array: &array, left: left, right: i - 1)
+    sort(array: &array, left: i + 1, right: right)
+}
+
+var array = [7, 3, 19, 2, 0, 6]
+sort(array: &array, left: 0, right: 5)
+print(array)
+
 //================================== Two Sum  (集合中的两个元素==给定的target值)=======================================
 var nums = [2, 4, 9, 3, 17, 6]
 var target = 8
@@ -642,5 +669,26 @@ var digit: Int8 = -1
 
 print("\(digit)的二进制中含有 \(Numbers.init().ASSICCOneOfNumber(number: &digit))个1")
 //=============================== END ======================================
+
+
+let a: [Int] = [7, 3, 6, 1, 8, 12, 4]
+var max: Int = 0
+var min: Int = Int.max
+//a[j]+a[i]+j-i 求最大值？
+for index in 0 ..< a.count {
+    print("\(index)")
+    let vMax = a[index] + index
+    let vMin = index - a[index]
+    if max < vMax  {
+        max = vMax
+    }
+    if min > vMin {
+        min = vMin
+    }
+}
+
+print(" max: \(max) - min: \(min) = \(max - min)")
+
+
 
 

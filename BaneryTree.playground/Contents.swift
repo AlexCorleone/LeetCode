@@ -90,7 +90,7 @@ class BaneryTree {
         BaneryTree.rightNodeCount = 0
         return rootNode
     }
-    //将一颗二叉树的左右节点的个数差值控制在 >= 1内
+    //将一颗二叉树的左右节点的个数差值控制在 <= 1内
     func banlanceBaneryTree(rootNode: TreeNode) -> Void {
         print("leftNodeCount: \(BaneryTree.leftNodeCount) rightNodeCount: \(BaneryTree.rightNodeCount)")
         var isWhileEnable = true
@@ -308,7 +308,7 @@ print("============================================================")
 //       2              7      12
 //      /
 //     1
-//？？？？？二叉树中如果存在相等的值对于等值的处理不通可能产生不同的树
+//？？？？？二叉树中如果存在相等的值对于等值的处理不同可能产生不同的树
 //rootNode = B_tree.buildBanerySearchTree(values: [3, 4, 6, 12, 7, 3, 15, 2, 7, 1, 9])
 //B_tree.inorderTraversalBaneryTree(rootMode: rootNode)
 
